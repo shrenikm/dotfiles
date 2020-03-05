@@ -1,12 +1,18 @@
 #!/bin/bash
 
-# Initial checks
+# Initial checks and setup
 # ------------------------------------------------
+
+# Defining colors
+# ------------------------------------------------
+RED='\033[0;31m'
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
 
 # Checking if this script is run from the repo
 VERSION_FILE=details.sh
 if ! [ -f "$VERSION_FILE" ]; then
-    echo 'This executable must be run from the main repo directory.'
+    echo -e "${RED}This executable must be run from the main repo directory.${NO_COLOR}"
     exit 0
 fi
 
@@ -38,6 +44,7 @@ if [ -L "$VIMRC_SYSTEM" ]; then
 else
     echo 'Neovim config symlink does not exist. Creating one ...'
     ln -s $VIMRC_REPO $VIMRC_SYSTEM
+    echo -e "${CYAN}Neovim has been setup. Run :PlugInstall to install the plugins"
 fi
 
 echo -e '\n'
@@ -54,8 +61,9 @@ else
     tmux -V | head -n 1
 fi
 
-# Directory to house the tmux config files
+# Directory to house the tmux config files and plugins
 mkdir -p ~/.tmux
+mkdir -p ~/.tmux/plugins
 
 # Path for the tmux config symlinks
 TMUX_SYSTEM_CONF=~/.tmux.conf
@@ -63,6 +71,7 @@ TMUX_SYSTEM_CONF_LOCAL=~/.tmux.conf.local
 # Path for the actual tmux config files in the repo
 TMUX_REPO_CONF=$(pwd)/.tmux/.tmux.conf
 TMUX_REPO_CONF_LOCAL=$(pwd)/.tmux/.tmux.conf.local
+TMUX_SETUP=false
 
 # Checking if the symlinks exist and creating them if they don't
 if [ -L "$TMUX_SYSTEM_CONF" ]; then
@@ -70,6 +79,7 @@ if [ -L "$TMUX_SYSTEM_CONF" ]; then
 else
     echo 'Tmux main config symlink does not exist. Creating one ...'
     ln -s $TMUX_REPO_CONF $TMUX_SYSTEM_CONF
+    TMUX_SETUP=true
 fi
 
 if [ -L "$TMUX_SYSTEM_CONF_LOCAL" ]; then
@@ -77,5 +87,19 @@ if [ -L "$TMUX_SYSTEM_CONF_LOCAL" ]; then
 else
     echo 'Tmux main config symlink does not exist. Creating one ...'
     ln -s $TMUX_REPO_CONF_LOCAL $TMUX_SYSTEM_CONF_LOCAL
+    TMUX_SETUP=true
 fi
 
+TMUX_TPM_DIR=~/.tmux/plugins/tpm
+# Installing TPM for tmux plugin management. Cloning the repo if it doesn't exist
+if [ -d "$TMUX_TPM_DIR" ]; then
+    echo 'Tmux plugin manager has already been installed.'
+else
+    echo 'Installing the tmux plugin manager.'
+    git clone https://github.com/tmux-plugins/tpm $TMUX_TPM_DIR
+    echo -e "${CYAN}TPM has been setup. Source the tmux.conf file to install the plugins.${NO_COLOR}"
+fi
+
+if [ "$TMUX_SETUP" = true ]; then
+    echo -e "${CYAN}Tmux has been setup.${NO_COLOR}"
+fi
