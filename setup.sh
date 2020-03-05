@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Initial checks
+# ------------------------------------------------
+
+# Checking if this script is run from the repo
+VERSION_FILE=details.sh
+if ! [ -f "$VERSION_FILE" ]; then
+    echo 'This executable must be run from the main repo directory.'
+    exit 0
+fi
+
 # Neovim setup
 # ------------------------------------------------
 
