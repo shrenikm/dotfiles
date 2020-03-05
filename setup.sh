@@ -69,8 +69,8 @@ mkdir -p ~/.tmux/plugins
 TMUX_SYSTEM_CONF=~/.tmux.conf
 TMUX_SYSTEM_CONF_LOCAL=~/.tmux.conf.local
 # Path for the actual tmux config files in the repo
-TMUX_REPO_CONF=$(pwd)/.tmux/.tmux.conf
-TMUX_REPO_CONF_LOCAL=$(pwd)/.tmux/.tmux.conf.local
+TMUX_REPO_CONF=$(pwd)/tmux/.tmux.conf
+TMUX_REPO_CONF_LOCAL=$(pwd)/tmux/.tmux.conf.local
 TMUX_SETUP=false
 
 # Checking if the symlinks exist and creating them if they don't
