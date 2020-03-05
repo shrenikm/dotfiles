@@ -16,6 +16,43 @@ if ! [ -f "$VERSION_FILE" ]; then
     exit 0
 fi
 
+# Zsh setup
+# ------------------------------------------------
+
+echo 'Setting up zsh ...'
+if ! [ -x "$(command -v zsh)" ]; then
+    echo 'Zshell is not installed. Installing ...'
+    sudp apt install zsh
+else
+    echo 'Zshell is installed'
+fi
+
+# Path for zshrc symlink
+ZSHRC_SYSTEM=~/.zshrc
+# Path for the actual zshrc in the repo
+ZSHRC_REPO=$(pwd)/zsh/.zshrc
+
+# Checking if the symlink exists and creating one if it doesn't
+if [ -L "$ZSHRC_SYSTEM" ]; then
+    echo 'Zshrc symlink already exists. Replacement must be done manually.'
+else
+    echo 'Zshrc symlink does not exist. Creating one ...'
+    ln -s $ZSHRC_REPO $ZSHRC_SYSTEM
+    echo -e "${CYAN}Zsh has been setup.${NO_COLOR}"
+fi
+
+# Installing oh-my-zsh if not already installed
+OH_MY_ZSH_DIR=~/.oh-my-zsh
+if [ -d "$OH_MY_ZSH_DIR" ]; then
+    echo 'Oh-my-zsh is already installed.'
+else
+    echo 'Installing oh-my-zsh.'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    echo -e "${CYAN}Oh-my-zsh has been installed.${NO_COLOR}"
+fi
+
+echo -e '\n'
+
 # Neovim setup
 # ------------------------------------------------
 
@@ -44,7 +81,7 @@ if [ -L "$VIMRC_SYSTEM" ]; then
 else
     echo 'Neovim config symlink does not exist. Creating one ...'
     ln -s $VIMRC_REPO $VIMRC_SYSTEM
-    echo -e "${CYAN}Neovim has been setup. Run :PlugInstall to install the plugins"
+    echo -e "${CYAN}Neovim has been setup. Run :PlugInstall to install the plugins${NO_COLOR}"
 fi
 
 echo -e '\n'
