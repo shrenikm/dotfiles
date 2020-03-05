@@ -7,6 +7,7 @@
 # ------------------------------------------------
 RED='\033[0;31m'
 CYAN='\033[1;36m'
+LIGHT_PURPLE='\033[1;35m'
 NO_COLOR='\033[0m'
 
 # Checking if this script is run from the repo
@@ -32,23 +33,30 @@ ZSHRC_SYSTEM=~/.zshrc
 # Path for the actual zshrc in the repo
 ZSHRC_REPO=$(pwd)/zsh/.zshrc
 
+# Deleting a .zshrc file if it exists.
+if [ -f "$ZSHRC_SYSTEM" ]; then
+    echo 'Found a .zshrc file (Not symlink). Deleting.'
+    rm $ZSHRC_SYSTEM
+fi
+
 # Checking if the symlink exists and creating one if it doesn't
 if [ -L "$ZSHRC_SYSTEM" ]; then
     echo 'Zshrc symlink already exists. Replacement must be done manually.'
 else
     echo 'Zshrc symlink does not exist. Creating one ...'
-    ln -s $ZSHRC_REPO $ZSHRC_SYSTEM
-    echo -e "${CYAN}Zsh has been setup.${NO_COLOR}"
+    # As the shell keep creating an rc file, we need a hard link
+    ln $ZSHRC_REPO $ZSHRC_SYSTEM
+    echo -e "${CYAN}Zsh has been setup. Restart the terminal or source the .zshrc file.${NO_COLOR}"
 fi
 
-# Installing oh-my-zsh if not already installed
+# oh-my-zsh
 OH_MY_ZSH_DIR=~/.oh-my-zsh
 if [ -d "$OH_MY_ZSH_DIR" ]; then
     echo 'Oh-my-zsh is already installed.'
 else
-    echo 'Installing oh-my-zsh.'
+    echo 'Oh-my-zsh is not installed. Installing ...'
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    echo -e "${CYAN}Oh-my-zsh has been installed.${NO_COLOR}"
+    echo "${CYAN}Oh-my-zsh has been installed.${NO_COLOR}"
 fi
 
 echo -e '\n'
