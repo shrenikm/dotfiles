@@ -190,7 +190,7 @@ exec 'nnoremap <Leader>lse :source ' . g:session_dir. '/*.vim<C-D><BS><BS><BS><B
 " deoplete
 "---------------
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-6.0/lib/libclang-6.0.0.so'
+let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
 let g:deoplete#sources#clang#clang_header='/usr/lib/llvm-6.0/lib/libclang'
 
 " Map to tab through deoplete options.
