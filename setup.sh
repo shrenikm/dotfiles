@@ -17,6 +17,12 @@ if ! [ -f "$VERSION_FILE" ]; then
     exit 0
 fi
 
+# Printing the details
+echo '------------------------------------------------'
+./details.sh
+echo '------------------------------------------------'
+echo -e '\n'
+
 # Update submodules
 # ------------------------------------------------
 git submodule update --init --recursive
