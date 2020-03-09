@@ -76,6 +76,8 @@ fi
 
 # Directory to house the nvim config files
 mkdir -p ~/.config/nvim
+# Sessions directory so that mksession sessions may be stored (Else the mappings throw an error)
+mkdir -p ~/.config/nvim/sessions
 
 # Path for vimrc (init.vim) symlink
 VIMRC_SYSTEM=~/.config/nvim/init.vim
