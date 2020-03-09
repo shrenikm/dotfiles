@@ -17,6 +17,11 @@ if ! [ -f "$VERSION_FILE" ]; then
     exit 0
 fi
 
+# Update submodules
+# ------------------------------------------------
+git submodule update --init --recursive
+
+
 # Zsh setup
 # ------------------------------------------------
 
