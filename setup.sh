@@ -33,12 +33,6 @@ ZSHRC_SYSTEM=~/.zshrc
 # Path for the actual zshrc in the repo
 ZSHRC_REPO=$(pwd)/zsh/.zshrc
 
-# Deleting a .zshrc file if it exists.
-if [ -f "$ZSHRC_SYSTEM" ]; then
-    echo 'Found a .zshrc file (Not symlink). Deleting.'
-    rm $ZSHRC_SYSTEM
-fi
-
 # Checking if the symlink exists and creating one if it doesn't
 if [ -L "$ZSHRC_SYSTEM" ]; then
     echo 'Zshrc symlink already exists. Replacement must be done manually.'
