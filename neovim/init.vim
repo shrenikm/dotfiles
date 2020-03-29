@@ -59,9 +59,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'nvie/vim-flake8'
 Plug 'tell-k/vim-autopep8'
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
@@ -209,15 +206,16 @@ autocmd FileType c,cpp set cc=80
 autocmd FileType python set cc=79
 
 "----------------------------
-" Set python autoformatter.
-"----------------------------
-autocmd FileType python AutoFormatBuffer autopep8
-
-
-"----------------------------
 " Set a mapping for autopep8.
 "----------------------------
-nnoremap <F8> :FormatCode<CR>
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
+" Other autopep8 settings.
+let g:autopep8_max_line_length=79
+let g:autopep8_indent_size=2
+let g:autopep8_on_save = 1
+let g:autopep8_disable_show_diff=1
+
 
 "-------------------------------------------
 " Ignore CamelCase words when spell checking
