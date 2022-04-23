@@ -108,14 +108,14 @@ source $ZSH/oh-my-zsh.sh
 
 ## >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/shrenikm/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/shrenikm/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/home/shrenikm/anaconda2/etc/profile.d/conda.sh"
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/shrenikm/anaconda2/bin:$PATH"
+        export PATH="/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -124,3 +124,4 @@ unset __conda_setup
 # Custom default conda environment
 conda activate ai
 
+export PYTHONPATH="${PYTHONPATH}:/home/shrenikm/Projects/Syndeo"
