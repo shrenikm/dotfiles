@@ -35,26 +35,27 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 Plug 'vim-scripts/a.vim'
 Plug 'tyok/ack.vim'
-"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-scripts/drawit'
 Plug 'gregsexton/gitv'
-"Plug 'valloric/ListToggle'
 Plug 'lifepillar/vim-solarized8'
+Plug 'ishan9299/nvim-solarized-lua'
+Plug 'overcache/NeoSolarized'
+Plug 'EdenEast/nightfox.nvim', { 'tag': 'v1.0.0' }
+Plug 'sainnhe/sonokai'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'crusoexia/vim-monokai'
+Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'mklabs/split-term.vim'
-"Plug 'tpope/tpope-vim-abolish'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'moll/vim-bbye'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-fugitive'
-"Plug 'weynhamz/vim-plugin-minibufexpl'
 Plug 'tpope/vim-sleuth'
 Plug 'wesQ3/vim-windowswap'
 Plug 'xolox/vim-misc'
@@ -65,6 +66,8 @@ Plug 'heavenshell/vim-pydocstring'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " If you add additional "Plug 'user/repo'" lines in the file specified by
 " s:local_plugins_file, those plugins will be loaded as well.
@@ -86,10 +89,14 @@ let mapleader=","
 "-----------
 " Theme
 "-----------
-"silent! colorscheme solarized8_flat
 "True colors support
 set termguicolors
-silent! colorscheme solarized8_flat
+"silent! colorscheme nordfox
+"silent! colorscheme solarized
+"silent! colorscheme NeoSolarized
+let g:sonokai_style = 'atlantis'
+silent! colorscheme sonokai
+"silent! colorscheme nord
 
 "--------------
 " YouCompleteMe
@@ -207,6 +214,14 @@ nnoremap <leader>nr :NvimTreeRefresh<CR>
 nnoremap <leader>nf :NvimTreeFindFile<CR>
 
 lua require('nvim-tree').setup()
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+      enable = true,
+    },
+}
+EOF
 
 
 "-------------

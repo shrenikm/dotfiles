@@ -123,5 +123,3 @@ unset __conda_setup
 
 # Custom default conda environment
 conda activate ai
-
-export PYTHONPATH="${PYTHONPATH}:/home/shrenikm/Projects/Syndeo"
