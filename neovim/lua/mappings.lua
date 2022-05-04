@@ -83,3 +83,11 @@ nnoremap("<leader>tj", ":tabedit %<cr>")
 -- Open new tab
 nnoremap("<leader>tt", ":tabedit <cr>")
 
+
+
+-- Nvim-tree mappings
+nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
+nnoremap("<leader>nr", ":NvimTreeRefresh<cr>")
+nnoremap("<leader>nf", ":NvimTreeFocus<cr>")
+nnoremap("<leader>nF", ":NvimTreeFindFile<cr>")
+
