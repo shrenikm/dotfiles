@@ -1,3 +1,5 @@
+-- Options
+-- ==================================================
 vim.g.mapleader = ","
 
 vim.opt.termguicolors = true
@@ -6,6 +8,12 @@ vim.opt.hlsearch = false
 vim.opt.hidden = true
 vim.opt.mouse = "a"
 vim.opt.splitright = true
+-- Hybrid - Both nonrelative and relative numbering if both are true.
+vim.opt.number = true
+-- Set relativenumber to false to have fixed numbering.
+vim.opt.relativenumber = false
+-- ==================================================
+
 
 -- Colorscheme settings
 -- ==================================================
@@ -16,25 +24,7 @@ colorscheme sonokai
 ]])
 -- ==================================================
 
--- Nvim-tree settings
--- ==================================================
-require'nvim-tree'.setup {
-  auto_reload_on_write = true,
-  hijack_cursor = false,
-  open_on_setup = false,
-  open_on_tab = false,
-  sort_by = "name",
-  renderer = {
-    icons = {
-      webdev_colors = true,
-    },
-  },
-  filters = {
-    dotfiles = false,
-    exclude = {},
-  },
-}
--- ==================================================
+
 -- lualine settings
 -- ==================================================
 require('lualine').setup {
@@ -57,7 +47,51 @@ require('lualine').setup {
   },
 }
 -- ==================================================
+
+
 -- Lsp settings
 -- ==================================================
+--local servers = {'pyright'}
+--for _, lsp in pairs(servers) do
+--  require('lspconfig')[lsp].setup {
+--    on_attach = on_attach,
+--    flags = {
+--      -- This will be the default in neovim 0.7+
+--      debounce_text_changes = 150,
+--    }
+--  }
+--end
+-- ==================================================
 
+
+-- Nvim-treesitter settings
+-- ==================================================
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"cpp", "lua", "python"},
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+-- ==================================================
+
+
+-- Nvim-tree settings
+-- ==================================================
+require'nvim-tree'.setup {
+  auto_reload_on_write = true,
+  hijack_cursor = false,
+  open_on_setup = false,
+  open_on_tab = false,
+  sort_by = "name",
+  renderer = {
+    icons = {
+      webdev_colors = true,
+    },
+  },
+  filters = {
+    dotfiles = false,
+    exclude = {},
+  },
+}
 -- ==================================================

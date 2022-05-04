@@ -7,26 +7,34 @@ vim.cmd([[
 ]])
 
 return require('packer').startup(function()
-  -- Packer itself.
+  -- Packer itself
+  -- ==================================================
   use 'wbthomason/packer.nvim'
+  -- ==================================================
 
-  -- Color schemes.
+
+  -- Color schemes
   -- ==================================================
   use 'sainnhe/sonokai'
-  -- UI plugins.
+  -- ==================================================
+
+
+  -- UI plugins
   -- ==================================================
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   -- ==================================================
-  -- Functional plugins.
+
+
+  -- Functional plugins
   -- ==================================================
   use 'neovim/nvim-lspconfig'
-  --use {
-  --    'nvim-treesitter/nvim-treesitter',
-  --    run = ':TSUpdate'
-  --}
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
