@@ -113,14 +113,21 @@ end
 
 
 -- TODO: Figure out how to move the setup call to settings.lua
+
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local lspconfig = require('lspconfig')
+
 local servers = { 'pyright', 'sumneko_lua' }
-for _, lsp in pairs(servers) do
-  require('lspconfig')[lsp].setup {
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
     on_attach = on_attach,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
-    }
+    },
+    capabilities = capabilities,
   }
 end
 -- =============================================
