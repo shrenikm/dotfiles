@@ -53,6 +53,13 @@ return require('packer').startup(function()
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     }
   }
+  -- Note that it is good to install fd and ripgrep for telescope
+  -- (sudo apt install fd-find)
+  -- (sudo apt-get install ripgrep)
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
   -- ==================================================
 
 end)
