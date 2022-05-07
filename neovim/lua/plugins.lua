@@ -1,10 +1,17 @@
+-- TODO: Rm the vimrc autocmd once it is established that the lua one works.
+--vim.cmd([[
+--  augroup packer_user_config
+--    autocmd!
+--    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+--  augroup end
+--]])
 -- Run :PackerCompile whenever plugins.lua is updated.
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+local packer_compile_augroup = vim.api.nvim_create_augroup('packer_use_config', {clear = true})
+vim.api.nvim_create_autocmd({'BufWritePost'}, {
+  pattern = 'plugins.lua',
+  group = packer_compile_augroup,
+  command = 'source <afile> | PackerCompile',
+})
 
 return require('packer').startup(function()
   -- Packer itself
@@ -37,8 +44,8 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
   use {
     'kyazdani42/nvim-tree.lua',
