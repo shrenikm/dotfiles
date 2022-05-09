@@ -145,7 +145,7 @@ cmp.setup.cmdline(':', {
 
 -- Nvim-treesitter settings
 -- ==================================================
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = {"cpp", "lua", "python"},
   highlight = {
     enable = true,
@@ -157,7 +157,7 @@ require'nvim-treesitter.configs'.setup {
 
 -- Nvim-tree settings
 -- ==================================================
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
   auto_reload_on_write = true,
   hijack_cursor = false,
   open_on_setup = false,
@@ -172,5 +172,23 @@ require'nvim-tree'.setup {
     dotfiles = false,
     exclude = {},
   },
+}
+-- ==================================================
+
+
+-- Telescope settings
+-- ==================================================
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-h>"] = "which_key"
+      }
+    }
+  },
+  pickers = {
+  },
+  extensions = {
+  }
 }
 -- ==================================================

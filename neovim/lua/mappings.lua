@@ -85,10 +85,10 @@ nnoremap("<leader>tt", ":tabedit <cr>") -- Open new tab
 
 -- Nvim-lspconfig mappings
 -- =============================================
-nnoremap('<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
-nnoremap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-nnoremap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-nnoremap('<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
+nnoremap("<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
+nnoremap("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+nnoremap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+nnoremap("<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
 -- Buffer bindings for after the language server attaches
 local on_attach = function(client, bufnr)
@@ -96,19 +96,19 @@ local on_attach = function(client, bufnr)
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_nnoremap(bufnr, 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  buf_nnoremap(bufnr, 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  buf_nnoremap(bufnr, 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  buf_nnoremap(bufnr, 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  buf_nnoremap(bufnr, '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  buf_nnoremap(bufnr, '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
-  buf_nnoremap(bufnr, '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
-  buf_nnoremap(bufnr, '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
-  buf_nnoremap(bufnr, '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  buf_nnoremap(bufnr, '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-  buf_nnoremap(bufnr, '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  buf_nnoremap(bufnr, 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  buf_nnoremap(bufnr, '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+  buf_nnoremap(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+  buf_nnoremap(bufnr, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+  buf_nnoremap(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+  buf_nnoremap(bufnr, "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+  buf_nnoremap(bufnr, "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+  buf_nnoremap(bufnr, "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
+  buf_nnoremap(bufnr, "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
+  buf_nnoremap(bufnr, "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+  buf_nnoremap(bufnr, "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+  buf_nnoremap(bufnr, "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+  buf_nnoremap(bufnr, "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+  buf_nnoremap(bufnr, "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+  buf_nnoremap(bufnr, "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 end
 
 
@@ -139,5 +139,18 @@ nnoremap("<leader>nt", ":NvimTreeToggle<cr>")
 nnoremap("<leader>nr", ":NvimTreeRefresh<cr>") -- Refresh tree
 nnoremap("<leader>nf", ":NvimTreeFocus<cr>") -- Transfer focus to the tree
 nnoremap("<leader>nF", ":NvimTreeFindFile<cr>")
+-- =============================================
+
+
+-- Telescope mappings
+-- =============================================
+nnoremap("<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
+nnoremap("<leader>fs", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
+nnoremap("<leader>fl", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+nnoremap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+nnoremap("<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+nnoremap("<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles()<cr>")
+nnoremap("<leader>fc", "<cmd>lua require('telescope.builtin').command_history()<cr>")
+nnoremap("<leader>fgs", "<cmd>lua require('telescope.builtin').git_status()<cr>")
 -- =============================================
 
