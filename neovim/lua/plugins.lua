@@ -38,6 +38,10 @@ return require('packer').startup(function()
   -- Functional plugins
   -- ==================================================
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+  use {
+    'psf/black',
+    branch = 'stable',
+  }
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/cmp-path' -- Filesystem path completion
@@ -58,7 +62,9 @@ return require('packer').startup(function()
   -- (sudo apt-get install ripgrep)
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
   }
   -- ==================================================
 
