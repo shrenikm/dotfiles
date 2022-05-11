@@ -156,6 +156,17 @@ vim.api.nvim_create_autocmd("Filetype", {
     nnoremap_nu("<space>z", ":Black<cr>")
   end
 })
+
+-- Isort mapping.
+vim.g["vim_isort_map"] = ""
+local isort_fmt_augroup = vim.api.nvim_create_augroup('isort_fmt_augroup', {clear = true})
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = "python",
+  group = isort_fmt_augroup,
+  callback = function()
+    nnoremap_nu("<space>i", ":Isort<cr>")
+  end
+})
 -- =============================================
 
 

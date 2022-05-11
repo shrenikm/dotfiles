@@ -42,6 +42,7 @@ return require('packer').startup(function()
     'psf/black',
     branch = 'stable',
   }
+  use 'fisadev/vim-isort'
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/cmp-path' -- Filesystem path completion
