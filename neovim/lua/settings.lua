@@ -192,3 +192,14 @@ require('telescope').setup{
   }
 }
 -- ==================================================
+
+
+-- ISort settings
+-- ==================================================
+-- TODO: Convert to Lua/make a better plugin later.
+vim.cmd([[
+let g:vim_isort_config_overrides = {
+  \ 'include_trailing_comma': 1,
+  \ 'multi_line_output': 3}
+]])
+-- ==================================================

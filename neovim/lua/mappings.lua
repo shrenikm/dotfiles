@@ -49,6 +49,11 @@ function buf_nnoremap_nu(bufnr, shortcut, command)
   buf_map(bufnr, 'n', shortcut, command, true, false)
 end
 
+-- Load nvim mappings
+-- =============================================
+nnoremap_u("<leader>sv", ":source ~/.config/nvim/init.lua<CR>")
+-- =============================================
+
 -- Save and close mappings
 -- =============================================
 nnoremap_u("<leader>w", ":w<cr>")
