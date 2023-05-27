@@ -10,7 +10,7 @@ end
 
 function buf_map(bufnr, mode, shortcut, command, noremap, unique)
   vim.api.nvim_buf_set_keymap(bufnr, mode, shortcut, command,
-    { noremap = noremap, unique=unique, silent = true } 
+    { noremap = noremap, unique=unique, silent = true }
   )
 end
 
@@ -121,7 +121,7 @@ local on_lsp_server_attach = function(client, bufnr)
   -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_nnoremap_u(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+  -- buf_nnoremap_u(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
   buf_nnoremap_u(bufnr, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
   buf_nnoremap_u(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   buf_nnoremap_u(bufnr, "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
@@ -144,7 +144,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
-local servers = { 'pyright', 'sumneko_lua' }
+local servers = { 'pyright', 'sumneko_lua', 'cmake', 'clangd' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_lsp_server_attach,

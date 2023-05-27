@@ -130,3 +130,5 @@ alias nvim='/opt/nvim_0.7-linux64/bin/nvim'
 # sumneko lua server
 alias luamake=/home/shrenikm/Projects/lua-language-server/3rd/luamake/luamake
 export PATH="/home/shrenikm/Projects/lua-language-server/bin:$PATH"
+
+export PYTHONPATH="/home/shrenikm/Projects/:$PYTHONPATH"
