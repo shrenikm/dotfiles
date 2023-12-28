@@ -80,11 +80,11 @@ nnoremap_u("<leader>nO", "O<Esc>") -- Insert a line above and go to normal mode
 nnoremap_u("<leader>bl", ":bnext<cr>") -- Next buffer
 nnoremap_u("<leader>bh", ":bprevious<cr>") -- Previous buffer
 
---nnoremap_u("<leader>bk", ":bdelete<cr>") -- close buffer
-
 -- Rather than just closing, we close and bring up the previous buffer.
 -- Maybe also consider :bp|bd#
-nnoremap_u("<leader>bk", ":bp<bar>sp<bar>bn<bar>bd<CR>") -- close buffer
+-- close buffer but keep the window and replace with the next buffer
+nnoremap_u("<leader>bk", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+nnoremap_u("<leader>bK", ":bd<cr>") -- Close buffer along with the tab
 -- =============================================
 
 
