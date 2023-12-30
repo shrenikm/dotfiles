@@ -160,7 +160,6 @@ require('nvim-treesitter.configs').setup {
 require('nvim-tree').setup {
   auto_reload_on_write = true,
   hijack_cursor = false,
-  open_on_setup = false,
   open_on_tab = false,
   sort_by = "name",
   renderer = {

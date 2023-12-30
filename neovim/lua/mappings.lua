@@ -139,12 +139,17 @@ end
 
 -- TODO: Figure out how to move the setup call to settings.lua
 
+-- Setup Mason
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
-local servers = { 'pyright', 'sumneko_lua', 'cmake', 'clangd', 'yamlls' }
+local servers = { 'pyright', 'lua_ls', 'cmake', 'clangd', 'yamlls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_lsp_server_attach,

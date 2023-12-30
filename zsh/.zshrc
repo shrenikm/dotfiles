@@ -125,7 +125,8 @@ unset __conda_setup
 conda activate ai
 
 # Alias for a specific nvim release
-alias nvim='/opt/nvim_0.7-linux64/bin/nvim'
+#alias nvim='/opt/nvim_0.7-linux64/bin/nvim'
+alias nvim='/opt/nvim_0.9.4-linux64/bin/nvim'
 
 # sumneko lua server
 alias luamake=/home/shrenikm/Projects/lua-language-server/3rd/luamake/luamake
