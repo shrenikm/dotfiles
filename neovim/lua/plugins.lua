@@ -58,10 +58,10 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
   use {
-    'kyazdani42/nvim-tree.lua',
+    'nvim-tree/nvim-tree.lua',
     requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    }
+      'nvim-tree/nvim-web-devicons', -- For file icons.
+    },
   }
   -- Note that it is good to install fd and ripgrep for telescope
   -- (sudo apt install fd-find)
