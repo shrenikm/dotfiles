@@ -49,9 +49,9 @@ function buf_nnoremap_nu(bufnr, shortcut, command)
   buf_map(bufnr, 'n', shortcut, command, true, false)
 end
 
--- Load nvim mappings
+-- Load nvim settings
 -- =============================================
-nnoremap_u("<leader>sv", ":source ~/.config/nvim/init.lua<CR>")
+nnoremap_u("<leader>sv", ":source $MYVIMRC<CR>")
 -- =============================================
 
 -- Save and close mappings
@@ -108,11 +108,17 @@ nnoremap_u("<leader>tt", ":tabedit <cr>") -- Open new tab
 -- =============================================
 
 
+-- Setting mappings
+-- =============================================
+nnoremap_nu("<Esc>", "<cmd>nohlsearch<CR>")
+-- =============================================
+
+
 -- Nvim-lspconfig mappings
 -- =============================================
 nnoremap_u("<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
-nnoremap_u("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-nnoremap_u("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+--nnoremap_u("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+--nnoremap_u("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 nnoremap_u("<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 
 -- Buffer bindings for after the language server attaches
