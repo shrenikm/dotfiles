@@ -54,13 +54,14 @@ vim.opt.incsearch = true
 
 -- Colorscheme settings
 -- ==================================================
-vim.cmd([[
-let g:sonokai_style = 'andromeda'
-let g:sonokai_better_performance = 1
-colorscheme sonokai
-]])
+--vim.cmd([[
+--let g:sonokai_style = 'andromeda'
+--let g:sonokai_better_performance = 1
+--colorscheme sonokai
+--]])
 -- ==================================================
 
+--[[
 
 -- lualine settings
 -- ==================================================
@@ -207,13 +208,5 @@ require('telescope').setup{
 }
 -- ==================================================
 
+--]]
 
--- ISort settings
--- ==================================================
--- TODO: Rm as pyproject.toml works
--- vim.cmd([[
--- let g:vim_isort_config_overrides = {
---   \ 'include_trailing_comma': 1,
---   \ 'multi_line_output': 3}
--- ]])
--- ==================================================
