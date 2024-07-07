@@ -46,22 +46,15 @@ vim.opt.smartcase = true
 vim.opt.updatetime = 250
 
 -- Search highlight
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Set clipboard
 vim.o.clipboard = "unnamedplus"
 
--- ==================================================
-
--- Colorscheme settings
--- ==================================================
---vim.cmd([[
---let g:sonokai_style = 'andromeda'
---let g:sonokai_better_performance = 1
---colorscheme sonokai
---]])
--- ==================================================
+-- Disable netrw for file tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 --[[
 

@@ -2,18 +2,15 @@ local keymap_opts = { noremap=true, unique=true, silent=true }
 
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.8",
+  name = "telescope",
   dependencies = {
     "nvim-lua/plenary.nvim",
     build = "make",
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
-  opts = {
-    
-  },
   config = function()
-    require("telescope").setup{
+    require("telescope").setup {
       defaults = {
         mappings = {
           i = {
