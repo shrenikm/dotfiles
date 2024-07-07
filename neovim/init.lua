@@ -6,6 +6,7 @@ require('settings')
 -- Lazy.nvim
 -- ==================================================
 require("config.lazy")
+require("lazy").setup("plugins")
 -- ==================================================
 
 

@@ -49,6 +49,8 @@ vim.opt.updatetime = 250
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
+-- Set clipboard
+vim.o.clipboard = "unnamedplus"
 
 -- ==================================================
 
