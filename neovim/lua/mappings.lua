@@ -9,6 +9,10 @@ nnoremap_u("<leader>sv", ":source $MYVIMRC<CR>")
 -- =============================================
 nnoremap_u("<leader>w", ":w<cr>")
 nnoremap_u("<leader>q", ":q<cr>")
+-- Save and quit
+nnoremap_u("<leader>W", ":wq<cr>")
+-- Quit without saving
+nnoremap_u("<leader>Q", ":q!<cr>")
 -- =============================================
 
 

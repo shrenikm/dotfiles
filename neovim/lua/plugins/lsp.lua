@@ -34,6 +34,7 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "nvim-telescope/telescope.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
 
@@ -79,8 +80,14 @@ return {
 
       -- Setup for each language server.
       local lspconfig = require("lspconfig")
+
+      -- Cross dependency with completions. Not really avoidable.
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       for _, ls in ipairs(REQUIRED_LS) do
-        lspconfig[ls].setup({})
+        lspconfig[ls].setup({
+          capabilities=capabilities,
+        })
       end
 
 
