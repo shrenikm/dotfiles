@@ -1,5 +1,5 @@
 -- Uses nvim-tree
-local KEYMAP_OPTS = { noremap=true, unique=false, silent=true }
+local KEYMAP_OPTS = { noremap = true, unique = false, silent = true }
 
 return {
   "nvim-tree/nvim-tree.lua",
@@ -8,7 +8,7 @@ return {
     { "nvim-tree/nvim-web-devicons" },
   },
   config = function()
-    require("nvim-tree").setup {
+    require("nvim-tree").setup({
       auto_reload_on_write = true,
       disable_netrw = true,
       sort = {
@@ -37,13 +37,12 @@ return {
         git_ignored = true,
         exclude = {},
       },
-    }
+    })
 
-    local api = require "nvim-tree.api"
+    local api = require("nvim-tree.api")
     vim.keymap.set("n", "<leader>nt", api.tree.toggle, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nr", api.tree.reload, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nf", api.tree.find_file, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nc", api.tree.collapse_all, KEYMAP_OPTS)
   end,
 }
-

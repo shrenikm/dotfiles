@@ -1,7 +1,7 @@
 -- Plugins for everything LSP
 
 -- Required language servers
-REQUIRED_LS = { "vimls", "cmake",  "clangd", "pyright", "bashls", "lua_ls", "yamlls" }
+REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls" }
 
 return {
   {
@@ -13,9 +13,9 @@ return {
           icons = {
             package_installed = "✓",
             package_pending = "➜",
-            package_uninstalled = "✗"
-          }
-        }
+            package_uninstalled = "✗",
+          },
+        },
       })
     end,
   },
@@ -23,27 +23,30 @@ return {
     "williamboman/mason-lspconfig.nvim",
     name = "mason-lspconfig",
     config = function()
-      require("mason-lspconfig").setup {
+      require("mason-lspconfig").setup({
         ensure_installed = REQUIRED_LS,
-      }
+      })
     end,
   },
   {
     "neovim/nvim-lspconfig",
-    name="nvim-lspconfig",
+    name = "nvim-lspconfig",
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "nvim-telescope/telescope.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("on-lsp-attach", { clear = true }),
         callback = function(event)
-
           local map = function(keys, func)
-            vim.keymap.set("n", keys, func, { buffer = event.buf, noremap = true, unique = false, silent = true})
+            vim.keymap.set(
+              "n",
+              keys,
+              func,
+              { buffer = event.buf, noremap = true, unique = false, silent = true }
+            )
           end
 
           --  Jump to where the variable/function was first delcared/defined. <C-t> to jump back.
@@ -75,22 +78,20 @@ return {
 
           --  Popup that displays documentation.
           map("K", vim.lsp.buf.hover)
-        end
+        end,
       })
 
       -- Setup for each language server.
       local lspconfig = require("lspconfig")
 
       -- Cross dependency with completions. Not really avoidable.
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       for _, ls in ipairs(REQUIRED_LS) do
         lspconfig[ls].setup({
-          capabilities=capabilities,
+          capabilities = capabilities,
         })
       end
-
-
     end,
   },
 }

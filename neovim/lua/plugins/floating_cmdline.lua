@@ -1,4 +1,5 @@
 -- TODO. Noice is the best one so far but its message buffers are out of whack
+-- Run :TSInstallInfo to verify future potential plugins
 
 return {}
 
@@ -29,4 +30,3 @@ return {}
 --  }
 --  end,
 --}
-

@@ -1,3 +1,6 @@
+-- TODO: Maybe a way to set available colorschemes as a global variable and run the
+-- colorscheme command automatically
+
 return {
   {
     "catppuccin/nvim",
@@ -18,5 +21,5 @@ return {
       vim.g.sonokai_better_performance = true
       vim.cmd([[colorscheme sonokai]])
     end,
-  }
+  },
 }

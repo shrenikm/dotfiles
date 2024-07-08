@@ -1,4 +1,4 @@
-local KEYMAP_OPTS = { noremap=true, unique=false, silent=true }
+local KEYMAP_OPTS = { noremap = true, unique = false, silent = true }
 
 return {
   "nvim-telescope/telescope.nvim",
@@ -10,21 +10,21 @@ return {
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   config = function()
-    require("telescope").setup {
+    require("telescope").setup({
       defaults = {
         mappings = {
           i = {
-            ["<C-h>"] = "which_key"
-          }
-        }
+            ["<C-h>"] = "which_key",
+          },
+        },
       },
       pickers = {},
       extensions = {
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
-        }
+        },
       },
-    }
+    })
     require("telescope").load_extension("ui-select")
 
     local builtin = require("telescope.builtin")
