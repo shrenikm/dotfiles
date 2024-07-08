@@ -65,6 +65,7 @@ return {
 
           --  Finds list of all symbols in the current workspace.
           map("<space>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
+
           --  Rename variable.
           map("<space>rn", vim.lsp.buf.rename)
 
