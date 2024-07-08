@@ -40,6 +40,8 @@ return {
     })
 
     local api = require("nvim-tree.api")
+    -- Change horizontal split to Ctrl-h from the default Ctrl-x
+    vim.keymap.set("n", "<C-h>", api.node.open.horizontal, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nt", api.tree.toggle, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nr", api.tree.reload, KEYMAP_OPTS)
     vim.keymap.set("n", "<leader>nf", api.tree.find_file, KEYMAP_OPTS)
