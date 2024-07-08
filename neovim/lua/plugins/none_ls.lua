@@ -31,8 +31,6 @@ return {
         null_ls.builtins.formatting.shfmt,
         -- For yaml
         null_ls.builtins.formatting.yamlfmt,
-
-        --require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
       },
     })
 
