@@ -55,7 +55,7 @@ return {
           map("gr", require("telescope.builtin").lsp_references)
 
           --  Jump to implementation of the variable/function. Useful for languages that can declare types without implementations.
-          map("gI", require("telescope.builtin").lsp_implementations)
+          map("gi", require("telescope.builtin").lsp_implementations)
 
           --  Jump to the type of the variable (Definition of its type not where it was defined).
           map("gt", require("telescope.builtin").lsp_type_definitions)

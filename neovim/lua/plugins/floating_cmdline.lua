@@ -1,7 +1,5 @@
 -- TODO. Noice is the best one so far but its message buffers are out of whack
 
-local KEYMAP_OPTS = { noremap=true, unique=true, silent=true }
-
 return {}
 
 --return {

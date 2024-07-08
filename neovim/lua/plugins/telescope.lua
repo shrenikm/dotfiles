@@ -1,4 +1,4 @@
-local KEYMAP_OPTS = { noremap=true, unique=true, silent=true }
+local KEYMAP_OPTS = { noremap=true, unique=false, silent=true }
 
 return {
   "nvim-telescope/telescope.nvim",
