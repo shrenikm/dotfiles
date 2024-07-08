@@ -1,11 +1,12 @@
 -- TODO. Noice is the best one so far but its message buffers are out of whack
 
-local keymap_opts = { noremap=true, unique=true, silent=true }
+local KEYMAP_OPTS = { noremap=true, unique=true, silent=true }
 
 return {}
 
 --return {
 --  "folke/noice.nvim",
+--  name = "noice",
 --  event = "VeryLazy",
 --  dependencies = {
 --    "MunifTanjim/nui.nvim",

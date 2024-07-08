@@ -1,5 +1,5 @@
 -- Uses nvim-tree
-local keymap_opts = { noremap=true, unique=true, silent=true }
+local KEYMAP_OPTS = { noremap=true, unique=true, silent=true }
 
 return {
   "nvim-tree/nvim-tree.lua",
@@ -40,10 +40,10 @@ return {
     }
 
     local api = require "nvim-tree.api"
-    vim.keymap.set("n", "<leader>nt", api.tree.toggle, keymap_opts)
-    vim.keymap.set("n", "<leader>nr", api.tree.reload, keymap_opts)
-    vim.keymap.set("n", "<leader>nf", api.tree.find_file, keymap_opts)
-    vim.keymap.set("n", "<leader>nc", api.tree.collapse_all, keymap_opts)
+    vim.keymap.set("n", "<leader>nt", api.tree.toggle, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>nr", api.tree.reload, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>nf", api.tree.find_file, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>nc", api.tree.collapse_all, KEYMAP_OPTS)
   end,
 }
 

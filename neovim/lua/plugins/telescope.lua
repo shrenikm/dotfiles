@@ -1,4 +1,4 @@
-local keymap_opts = { noremap=true, unique=true, silent=true }
+local KEYMAP_OPTS = { noremap=true, unique=true, silent=true }
 
 return {
   "nvim-telescope/telescope.nvim",
@@ -28,13 +28,13 @@ return {
     require("telescope").load_extension("ui-select")
 
     local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, keymap_opts)
-    vim.keymap.set("n", "<leader>fs", builtin.grep_string, keymap_opts)
-    vim.keymap.set("n", "<leader>fl", builtin.live_grep, keymap_opts)
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, keymap_opts)
-    vim.keymap.set("n", "<leader>fo", builtin.oldfiles, keymap_opts)
-    vim.keymap.set("n", "<leader>fc", builtin.command_history, keymap_opts)
-    vim.keymap.set("n", "<leader>fg", builtin.git_status, keymap_opts)
-    vim.keymap.set("n", "<leader>fh", builtin.help_tags, keymap_opts)
+    vim.keymap.set("n", "<leader>ff", builtin.find_files, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fs", builtin.grep_string, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fl", builtin.live_grep, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fo", builtin.oldfiles, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fc", builtin.command_history, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fg", builtin.git_status, KEYMAP_OPTS)
+    vim.keymap.set("n", "<leader>fh", builtin.help_tags, KEYMAP_OPTS)
   end,
 }
