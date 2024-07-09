@@ -52,3 +52,10 @@ vim.opt.incsearch = true
 -- Set clipboard
 vim.o.clipboard = "unnamedplus"
 
+-- ==================================================
+
+-- Autocmds
+-- ==================================================
+-- Disable line numbers in the nvim terminal
+vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+-- ==================================================

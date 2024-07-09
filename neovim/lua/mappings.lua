@@ -43,7 +43,6 @@ nnoremap_u("<leader>bK", ":bd<cr>") -- Close buffer along with the tab
 -- =============================================
 
 
-
 -- Window mappings
 -- =============================================
 nnoremap_u("<leader>sh", "<c-w>h")
@@ -68,3 +67,12 @@ nnoremap_u("<leader>tt", ":tabedit <cr>") -- Open new tab
 nnoremap_nu("<Esc>", "<cmd>nohlsearch<CR>")
 -- =============================================
 
+-- Terminal mappings
+-- =============================================
+-- Vertical split terminal with <C-/>
+-- Note that <C-_> actually maps to <C-/>
+-- The A after <CR> is so that the cursor is at the terminal start, ready to be typed.
+nnoremap_nu("<C-_>", ":vsplit +terminal<CR>A")
+-- Same shortcut to close the terminal as well.
+map("t", "<C-_>", "<C-\\><C-n>:bd!<CR>", true, false)
+-- =============================================
