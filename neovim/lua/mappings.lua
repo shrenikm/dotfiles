@@ -43,7 +43,6 @@ nnoremap_u("<leader>bK", ":bd<cr>") -- Close buffer along with the tab
 -- =============================================
 
 
-
 -- Window mappings
 -- =============================================
 nnoremap_u("<leader>sh", "<c-w>h")
@@ -68,3 +67,7 @@ nnoremap_u("<leader>tt", ":tabedit <cr>") -- Open new tab
 nnoremap_nu("<Esc>", "<cmd>nohlsearch<CR>")
 -- =============================================
 
+-- Terminal mappings
+-- =============================================
+nnoremap_nu("<leader>T", ":terminal<CR>A")
+-- =============================================
