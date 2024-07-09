@@ -7,7 +7,13 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   config = function()
-    -- TODO: Config
-    require("neogit").setup()
+    -- TODO: Full config
+    require("neogit").setup({
+      integrations = {
+        telescope = true,
+        diffview = true,
+      },
+    })
   end,
 }
+
