@@ -73,6 +73,6 @@ nnoremap_nu("<Esc>", "<cmd>nohlsearch<CR>")
 -- Note that <C-_> actually maps to <C-/>
 -- The A after <CR> is so that the cursor is at the terminal start, ready to be typed.
 nnoremap_nu("<C-_>", ":vsplit +terminal<CR>A")
--- TODO: Terminal mode mapping to quickly exit the split terminal
--- TODO: Get rid of line numbers in term using autocmds
+-- Same shortcut to close the terminal as well.
+map("t", "<C-_>", "<C-\\><C-n>:bd!<CR>", true, false)
 -- =============================================
