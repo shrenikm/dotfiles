@@ -1,6 +1,6 @@
 -- Required parsers
-required_parsers =
-	{ "vim", "vimdoc", "markdown", "cmake", "c", "cpp", "python", "bash", "lua", "luadoc", "regex", "yaml" }
+REQUIRED_PARSERS =
+	{ "vim", "vimdoc", "markdown", "cmake", "c", "cpp", "python", "bash", "lua", "luadoc", "regex", "yaml", "xml" }
 
 return {
 	"nvim-treesitter/nvim-treesitter",
@@ -8,7 +8,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = required_parsers,
+			ensure_installed = REQUIRED_PARSERS,
 			auto_install = true,
 			highlight = {
 				enable = true,

@@ -31,6 +31,8 @@ return {
 				null_ls.builtins.formatting.shfmt,
 				-- For yaml
 				null_ls.builtins.formatting.yamlfmt,
+				-- For xml
+				null_ls.builtins.formatting.xmllint,
 			},
 		})
 

@@ -1,7 +1,7 @@
 -- Plugins for everything LSP
 
 -- Required language servers
-REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls" }
+REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls", "lemminx" }
 
 return {
 	{
