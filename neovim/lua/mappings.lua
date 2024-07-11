@@ -19,20 +19,17 @@ nnoremap_u("<leader>Q", ":qa<cr>")
 nnoremap_u("<leader>X", ":qa!<cr>")
 -- =============================================
 
-
 -- Scroll mappings
 -- =============================================
 nnoremap_u("<leader>md", "25<c-e>") -- Scroll down 25 lines
 nnoremap_u("<leader>me", "25<c-y>") -- Scroll up 25 lines
 -- =============================================
 
-
 -- Newline mappings
 -- =============================================
 nnoremap_u("<leader>no", "o<Esc>") -- Insert a line below and go to normal mode
 nnoremap_u("<leader>nO", "O<Esc>") -- Insert a line above and go to normal mode
 -- =============================================
-
 
 -- Buffer mappings
 -- =============================================
@@ -46,7 +43,6 @@ nnoremap_u("<leader>bk", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 nnoremap_u("<leader>bK", ":bd<cr>") -- Close buffer along with the tab
 -- =============================================
 
-
 -- Window mappings
 -- =============================================
 nnoremap_u("<leader>sh", "<c-w>h")
@@ -54,7 +50,6 @@ nnoremap_u("<leader>sl", "<c-w>l")
 nnoremap_u("<leader>sj", "<c-w>j")
 nnoremap_u("<leader>sk", "<c-w>k")
 -- =============================================
-
 
 -- Tab mappings
 -- =============================================
@@ -64,7 +59,6 @@ nnoremap_u("<leader>tk", ":tabclose<cr>") -- Close tab
 nnoremap_u("<leader>tj", ":tabedit %<cr>") -- Open window new tab
 nnoremap_u("<leader>tt", ":tabedit <cr>") -- Open new tab
 -- =============================================
-
 
 -- Setting mappings
 -- =============================================
