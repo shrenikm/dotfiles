@@ -9,10 +9,14 @@ nnoremap_u("<leader>sv", ":source $MYVIMRC<CR>")
 -- =============================================
 nnoremap_u("<leader>w", ":w<cr>")
 nnoremap_u("<leader>q", ":q<cr>")
--- Save and quit
-nnoremap_u("<leader>W", ":wq<cr>")
--- Quit without saving
-nnoremap_u("<leader>Q", ":q!<cr>")
+-- Quit file without saving
+nnoremap_u("<leader>x", ":q!<cr>")
+-- Save all open files.
+nnoremap_u("<leader>W", ":wa<cr>")
+-- Quit all open files/buffers
+nnoremap_u("<leader>Q", ":qa<cr>")
+-- Quit all open files/buffers without saving
+nnoremap_u("<leader>X", ":qa!<cr>")
 -- =============================================
 
 
