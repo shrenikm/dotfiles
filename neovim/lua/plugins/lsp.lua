@@ -1,7 +1,29 @@
 -- Plugins for everything LSP
 
 -- Required language servers
-REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls", "lemminx" }
+REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls", "lemminx", "grammarly" }
+-- List of all required language servers and their options.
+LS_CONFIG = {
+	vimls = {},
+	cmake = {},
+	clangd = {},
+	pyright = {},
+	bashls = {},
+	lua_ls = {},
+	yamlls = {},
+	lemminx = {},
+	-- Running  grammarly on more files than just markdown
+	grammarly = {
+		filetypes = { "vim", "lua", "cmake", "c", "cpp", "python", "sh", "yaml", "xml", "markdown", "text", "toml" },
+	},
+}
+
+-- Extract the list of required language servers to be added to ensure_installed.
+
+REQUIRED_LS = {}
+for ls, _ in pairs(LS_CONFIG) do
+	table.insert(REQUIRED_LS, ls)
+end
 
 return {
 	{
@@ -87,7 +109,7 @@ return {
 			-- Cross dependency with completions. Not really avoidable.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			for _, ls in ipairs(REQUIRED_LS) do
+			for ls, _ in pairs(LS_CONFIG) do
 				lspconfig[ls].setup({
 					capabilities = capabilities,
 				})
