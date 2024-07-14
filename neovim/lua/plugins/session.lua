@@ -6,8 +6,8 @@ return {
 		},
 		config = function()
 			require("auto-session").setup({
-        auto_session_enabled = true,
-        auto_session_enable_last_session = true,
+				auto_session_enabled = true,
+				auto_session_enable_last_session = true,
 				auto_session_suppress_dirs = { "/", "~/Downloads" },
 			})
 		end,
