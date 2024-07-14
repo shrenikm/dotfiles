@@ -11,13 +11,14 @@ return {
 		end,
 	},
 	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		name = "nvim-cmp",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
+			"neovim/nvim-lspconfig",
+		  "hrsh7th/cmp-nvim-lsp",
+		  "hrsh7th/nvim-cmp",
+		  "hrsh7th/cmp-path",
 		},
 		config = function()
 			local luasnip = require("luasnip")
@@ -91,8 +92,9 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
-				}, {
+					{ name = "codeium" },
 					{ name = "buffer" },
+          { name = "path"},
 				}),
 			})
 		end,
