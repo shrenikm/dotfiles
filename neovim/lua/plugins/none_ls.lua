@@ -11,7 +11,7 @@ return {
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
-          -- Code actions
+					-- Code actions
 
 					-- Formatters (MAKE SURE THESE ARE INSTALLED THROUGH MASON)
 					-- For lua
@@ -41,8 +41,8 @@ return {
 			vim.keymap.set("n", "<space>f", vim.lsp.buf.format, KEYMAP_OPTS)
 		end,
 	},
-  -- Primarily used to auto install Mason linters and formatters. mason-lspconfig cannot be used for this
-  -- as it can only ensure install LSPs.
+	-- Primarily used to auto install Mason linters and formatters. mason-lspconfig cannot be used for this
+	-- as it can only ensure install LSPs.
 	{
 		"jay-babu/mason-null-ls.nvim",
 		name = "mason-null_ls",
