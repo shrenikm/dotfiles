@@ -1,7 +1,5 @@
 -- Plugins for everything LSP
 
--- Required language servers
-REQUIRED_LS = { "vimls", "cmake", "clangd", "pyright", "bashls", "lua_ls", "yamlls", "lemminx", "grammarly" }
 -- List of all required language servers and their options.
 LS_CONFIG = {
 	vimls = {},
