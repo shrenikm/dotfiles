@@ -24,20 +24,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
--- Language specific tabs.
--- TODO: Is there a better way to do this?
-local python_tab_augroup = vim.api.nvim_create_augroup("python_tab_augroup", { clear = true })
-vim.api.nvim_create_autocmd("Filetype", {
-	pattern = "python",
-	group = python_tab_augroup,
-	callback = function()
-		vim.bo.tabstop = 4
-		vim.bo.shiftwidth = 4
-		vim.bo.softtabstop = 4
-		vim.bo.expandtab = true
-	end,
-})
-
 -- -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
