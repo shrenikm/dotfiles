@@ -16,9 +16,9 @@ return {
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"neovim/nvim-lspconfig",
-		  "hrsh7th/cmp-nvim-lsp",
-		  "hrsh7th/nvim-cmp",
-		  "hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-path",
 		},
 		config = function()
 			local luasnip = require("luasnip")
@@ -61,7 +61,7 @@ return {
 					["<C-d>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
+					["<C-x>"] = cmp.mapping.abort(),
 
 					-- NOTE: The following mappings are luasnip specific.
 					-- See the nvim-cmp GitHub wiki for more mapping details.
@@ -80,20 +80,18 @@ return {
 						end
 					end),
 
-					-- Mapping both Tab and Ctrl-j to be able to go down the completions list.
+					-- Mapping Ctrl-j to be able to go down the completions list.
 					["<C-j>"] = cmp.mapping(select_next_completion, { "i", "s" }),
-					["<Tab>"] = cmp.mapping(select_next_completion, { "i", "s" }),
 
-					-- Mapping both Shift-Tab and Ctrl-k to be able to go up the completions list.
+					-- Mapping Ctrl-k to be able to go up the completions list.
 					["<C-k>"] = cmp.mapping(select_prev_completion, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(select_prev_completion, { "i", "s" }),
 				}),
 
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
-          { name = "path"},
+					{ name = "path" },
 				}),
 			})
 		end,

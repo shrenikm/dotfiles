@@ -15,6 +15,10 @@ return {
 				mappings = {
 					i = {
 						["<C-h>"] = "which_key",
+            ["<C-j>"] = "move_selection_next",
+            ["<C-k>"] = "move_selection_previous",
+            ["<C-u>"] = "preview_scrolling_up",
+            ["<C-d>"] = "preview_scrolling_down",
 					},
 				},
 			},
