@@ -2,16 +2,26 @@
 
 -- List of all required language servers and their options.
 LS_CONFIG = {
+	-- For Vim
 	vimls = {},
+	-- For CMake
 	cmake = {},
+	-- For C/C++
 	clangd = {},
+	-- For Python
 	pyright = {},
+	-- For Shell
 	bashls = {},
+	-- For Lua
 	lua_ls = {},
+	-- For YAML
 	yamlls = {},
+	-- For XML
 	lemminx = {},
-	-- Running  grammarly on more files than just markdown
-	grammarly = {
+	-- For TOML
+	taplo = {},
+	-- For Grammar
+	harper_ls = {
 		filetypes = { "vim", "lua", "cmake", "c", "cpp", "python", "sh", "yaml", "xml", "markdown", "text", "toml" },
 	},
 }
