@@ -38,6 +38,7 @@ return {
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, KEYMAP_OPTS)
 		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, KEYMAP_OPTS)
 		vim.keymap.set("n", "<leader>fc", builtin.command_history, KEYMAP_OPTS)
+		vim.keymap.set("n", "<leader>fr", builtin.resume, KEYMAP_OPTS)
 		vim.keymap.set("n", "<leader>fg", builtin.git_status, KEYMAP_OPTS)
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, KEYMAP_OPTS)
 	end,
