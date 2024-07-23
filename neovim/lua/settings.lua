@@ -11,7 +11,7 @@ vim.opt.splitright = true
 -- Hybrid - Both nonrelative and relative numbering if both are true.
 vim.opt.number = true
 -- Set relativenumber to false to have fixed numbering.
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 -- Sync nvim and OS clipboards
 vim.opt.clipboard = "unnamedplus"
