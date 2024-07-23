@@ -33,7 +33,7 @@ nnoremap_u("<leader>nO", "O<Esc>") -- Insert a line above and go to normal mode
 
 -- Buffer mappings
 -- =============================================
-nnoremap_u("<leader>bl", ":bnext<cr>") -- Next buffer
+nnoremap_u("<leader>bl", ":bnext<cr>")     -- Next buffer
 nnoremap_u("<leader>bh", ":bprevious<cr>") -- Previous buffer
 
 -- Rather than just closing, we close and bring up the previous buffer.
@@ -53,11 +53,11 @@ nnoremap_u("<leader>sk", "<c-w>k")
 
 -- Tab mappings
 -- =============================================
-nnoremap_u("<leader>tl", ":tabn<cr>") -- Next tab
-nnoremap_u("<leader>th", ":tabp<cr>") -- Previous tab
-nnoremap_u("<leader>tk", ":tabclose<cr>") -- Close tab
+nnoremap_u("<leader>tl", ":tabn<cr>")      -- Next tab
+nnoremap_u("<leader>th", ":tabp<cr>")      -- Previous tab
+nnoremap_u("<leader>tk", ":tabclose<cr>")  -- Close tab
 nnoremap_u("<leader>tj", ":tabedit %<cr>") -- Open window new tab
-nnoremap_u("<leader>tt", ":tabedit <cr>") -- Open new tab
+nnoremap_u("<leader>tt", ":tabedit <cr>")  -- Open new tab
 -- =============================================
 
 -- Setting mappings
@@ -74,3 +74,10 @@ nnoremap_nu("<C-_>", ":vsplit +terminal<CR>A")
 -- Same shortcut to close the terminal as well.
 map("t", "<C-_>", "<C-\\><C-n>:bd!<CR>", true, false)
 -- =============================================
+
+-- File execution mappings
+-- =============================================
+-- Execute current python file in a split terminal
+nnoremap_u("<leader>ep", ":vsplit term://python %<CR>")
+-- =============================================
+
