@@ -1,5 +1,10 @@
-# dev_env
-Development environment for when starting from a clean slate
+# dotfiles
+
+* Neovim
+* Zsh
+* Tmux
+* etc
+
 
 # Installation
 

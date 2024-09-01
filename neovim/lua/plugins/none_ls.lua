@@ -12,16 +12,12 @@ return {
 			null_ls.setup({
 				sources = {
 					-- Code actions
-
-					-- Formatters (MAKE SURE THESE ARE INSTALLED THROUGH MASON)
 					-- For lua
 					null_ls.builtins.formatting.stylua,
 					-- For CMake
 					null_ls.builtins.formatting.cmake_format,
 					-- For C/C++
 					null_ls.builtins.formatting.clang_format,
-					-- For python
-					null_ls.builtins.formatting.black,
 					-- For python imports
 					null_ls.builtins.formatting.isort,
 					-- For codeblocks inside markdown
@@ -56,7 +52,6 @@ return {
 					"stylua",
 					"cmake_format",
 					"clang_format",
-					"black",
 					"isort",
 					"cbfmt",
 					"markdownlint",
