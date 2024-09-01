@@ -12,8 +12,6 @@ return {
 			null_ls.setup({
 				sources = {
 					-- Code actions
-
-					-- Formatters (MAKE SURE THESE ARE INSTALLED THROUGH MASON)
 					-- For lua
 					null_ls.builtins.formatting.stylua,
 					-- For CMake

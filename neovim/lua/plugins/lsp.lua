@@ -10,7 +10,7 @@ LS_CONFIG = {
 	clangd = {},
 	-- For Python
 	pyright = {},
-  ruff = {},
+  ruff_lsp = {},
 	-- For Shell
 	bashls = {},
 	-- For Lua
