@@ -1,5 +1,10 @@
 -- Plugins for everything LSP
 
+local function on_attach_ruff(client, bufnr)
+	-- Disable hover in favor of Pyright.
+	client.server_capabilities.hoverProvider = false
+end
+
 -- List of all required language servers and their options.
 LS_CONFIG = {
 	-- For Vim
@@ -9,8 +14,23 @@ LS_CONFIG = {
 	-- For C/C++
 	clangd = {},
 	-- For Python
-	pyright = {},
-	ruff_lsp = {},
+	ruff_lsp = {
+		on_attach = on_attach_ruff,
+	},
+	pyright = {
+		settings = {
+			pyright = {
+				-- Using Ruff's import organizer instead of Pyright's
+				disableOrganizeImports = true,
+			},
+			python = {
+				analysis = {
+					-- Ignore all files for analysis to exclusively use Ruff for linting
+					ignore = { "*" },
+				},
+			},
+		},
+	},
 	-- For Shell
 	bashls = {},
 	-- For Lua
@@ -80,7 +100,7 @@ return {
 						)
 					end
 
-					--  Jump to where the variable/function was first delcared/defined. <C-t> to jump back.
+					--  Jump to where the variable/function was first declared/defined. <C-t> to jump back.
 					map("gd", require("telescope.builtin").lsp_definitions)
 
 					-- Jump to declaration (In C++, this points to the header).
@@ -118,9 +138,10 @@ return {
 			-- Cross dependency with completions. Not really avoidable.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			for ls, _ in pairs(LS_CONFIG) do
+			for ls, config in pairs(LS_CONFIG) do
+				config.capabilities = capabilities
 				lspconfig[ls].setup({
-					capabilities = capabilities,
+					config,
 				})
 			end
 		end,
