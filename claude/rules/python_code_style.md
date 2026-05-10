@@ -27,6 +27,11 @@
 - Constants may also be placed in individual files if their scope/usage is not large. These must always be placed at the top of the file
 - Never use emojis in code
 
+## Functions
+
+- In classes, place dunder methods and other attrs (like attr.default) methods before functions defined for the class
+- Function definitions must be placed before they are used in code (unless absolutely required like for example dunder methods, etc.)
+
 ## Type Hints
 
 - Type hints are necessary in almost every circumstance
@@ -51,6 +56,9 @@
 - Avoid inline comments
 - Avoid comments that are obvious or trivial
 - Complex logic must always be preceded by a comment/comments
+- Comments must be concise and to the point. Avoid round about explanations and unnecessary details
+- Comments ideally must span the full length of the line width mentioned in any formatting settings (like ruff). In the absence of such a setting, they must match the length/flow of surrounding code
+- Avoid splitting comments into short lines. If they must be broken to contain line width, they must be broken at logical points to ensure readability
 
 ## Error Handling
 
