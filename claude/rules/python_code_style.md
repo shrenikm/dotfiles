@@ -54,6 +54,7 @@
 ### Comments
 
 - Avoid inline comments
+- Avoid backticks in comments
 - Avoid comments that are obvious or trivial
 - Complex logic must always be preceded by a comment/comments
 - Comments must be concise and to the point. Avoid round about explanations and unnecessary details
