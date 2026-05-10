@@ -57,7 +57,7 @@
 - Avoid comments that are obvious or trivial
 - Complex logic must always be preceded by a comment/comments
 - Comments must be concise and to the point. Avoid round about explanations and unnecessary details
-- Comments ideally must span the full length of the line width mentioned in any formatting settings (like ruff). In the absence of such a setting, they must match the length/flow of surrounding code
+- Comments ideally must span approximately the full length of the line width mentioned in any formatting settings (like ruff). In the absence of such settings, they must match the length/flow of surrounding code. The goal is to make it as natural and easy to read as possible
 - Avoid splitting comments into short lines. If they must be broken to contain line width, they must be broken at logical points to ensure readability
 
 ## Error Handling
