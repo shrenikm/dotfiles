@@ -14,6 +14,24 @@ return {
           -- buffer-local `<leader>co` (conflict_choose("ours")) wins inside
           -- a diffview tab without a per-LSP buffer-local binding racing it.
         },
+        -- Basedpyright with settings to make it less noisy/annoying
+        basedpyright = {
+          settings = {
+            basedpyright = {
+              analysis = {
+                typeCheckingMode = "standard",
+                diagnosticSeverityOverrides = {
+                  reportAny = "none",
+                  reportExplicitAny = "none",
+                  reportMissingTypeArgument = "none",
+                  reportPrivateLocalImportUsage = "none",
+                  reportUnannotatedClassAttribute = "none",
+                  reportUnusedCallResult = "none",
+                },
+              },
+            },
+          },
+        },
         harper_ls = {
           filetypes = { "vim", "lua", "cmake", "c", "cpp", "python", "sh", "yaml", "xml", "markdown", "text", "toml" },
           settings = {
@@ -27,14 +45,6 @@ return {
         -- copilot.lua only works with its own copilot lsp server
         copilot = { enabled = false },
       },
-      -- setup = {
-      --   [ruff] = function()
-      --     Snacks.util.lsp.on({ name = ruff }, function(_, client)
-      --       -- Disable hover in favor of Pyright
-      --       client.server_capabilities.hoverProvider = false
-      --     end)
-      --   end,
-      -- },
     },
   },
 }
