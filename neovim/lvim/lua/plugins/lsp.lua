@@ -28,6 +28,14 @@ return {
                   reportUnannotatedClassAttribute = "none",
                   reportUnusedCallResult = "none",
                 },
+                -- Keep parameter-name hints (the "foo=" labels next to args
+                -- in function calls); kill every type-annotation ghost.
+                inlayHints = {
+                  callArgumentNames = true,
+                  variableTypes = false,
+                  functionReturnTypes = false,
+                  genericTypes = false,
+                },
               },
             },
           },
