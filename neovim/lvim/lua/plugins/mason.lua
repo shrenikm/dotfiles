@@ -11,7 +11,7 @@ return {
       "lemminx",
       "lua-language-server",
       "pyproject-fmt",
-      "pyright",
+      "basedpyright",
       "ruff",
       "shfmt",
       "stylua",
