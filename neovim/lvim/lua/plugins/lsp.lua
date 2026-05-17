@@ -24,6 +24,7 @@ return {
                   reportAny = "none",
                   reportExplicitAny = "none",
                   reportMissingTypeArgument = "none",
+                  reportPrivateImportUsage = "none",
                   reportPrivateLocalImportUsage = "none",
                   reportUnannotatedClassAttribute = "none",
                   reportUnusedCallResult = "none",
