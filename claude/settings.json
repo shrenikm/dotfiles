@@ -42,13 +42,27 @@
       "Bash(pgrep *)"
     ],
     "deny": [
+      // Nuke
       "Bash(rm -rf *)",
+      // Git
       "Bash(git push --force *)",
-      "Bash(git reset --hard *)"
+      "Bash(git reset --hard *)",
+      // env files
+      "Read(.env)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(cat .env)",
+      "Bash(cat **/.env)",
+      "Bash(cat **/.env.*)",
+      "Bash(printenv)",
+      "Bash(env)",
     ]
   },
   "effortLevel": "xhigh",
   "theme": "dark-ansi",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  }
 }
