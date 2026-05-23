@@ -96,7 +96,7 @@ unset __conda_setup
 # disabled (changeps1: false) because it doesn't survive direnv's subshell
 # activation, so we inject the prefix here in a theme-agnostic way.
 setopt prompt_subst
-PROMPT='%F{yellow}${CONDA_DEFAULT_ENV:+($CONDA_DEFAULT_ENV) }%f'$PROMPT
+RPROMPT='%F{yellow}${CONDA_DEFAULT_ENV:+($CONDA_DEFAULT_ENV) }%f'$RPROMPT
 # -----------------------------------------------------------
 
 # Node config
