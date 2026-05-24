@@ -51,7 +51,9 @@ else
     # shellcheck source=../versions
     . "$VERSIONS_FILE"
     YAZI_INSTALL_DIR="$HOME/.local/bin"
-    YAZI_RELEASE="yazi-x86_64-unknown-linux-gnu"
+    # musl build is statically linked, so it runs regardless of the host glibc
+    # version (the gnu build hard-requires the glibc it was compiled against).
+    YAZI_RELEASE="yazi-x86_64-unknown-linux-musl"
     YAZI_ZIP_URL="https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSION}/${YAZI_RELEASE}.zip"
 
     echo "yazi is not installed. Downloading $YAZI_VERSION ..."
