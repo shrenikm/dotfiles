@@ -43,6 +43,11 @@ download (tracked in the root-level `versions` file) only when:
 If none of those apply, apt keeps the setup script trivial and avoids
 pinning a version we don't actually care about.
 
+Language toolchains (conda, uv, rust, node) are a third case: install via
+the upstream installer, never apt. apt lags too far behind to be usable
+(e.g. it ships Rust 1.75, too old for edition2024 crates). See the
+Language toolchains section.
+
 ## Neovim
 
 Two configs coexist: `neovim/nvim/` (legacy, from-scratch) and
@@ -54,9 +59,28 @@ symlinked into `~/.local/bin/`. The shims set `NVIM_APPNAME` and exec the
 pinned neovim binary. They are NOT zsh aliases — being on PATH means
 they resolve from any shell context (yazi, git, cron, `$EDITOR`, sh -c).
 
-Pinned versions for all download-managed tools (neovim, lazygit, yazi)
-live in the root-level `versions` file as shell assignments
+Pinned versions for all download-managed tools (neovim, lazygit, yazi,
+nvm) live in the root-level `versions` file as shell assignments
 (`NVIM_VERSION=…`, `LAZYGIT_VERSION=…`, `YAZI_VERSION=…`). Setup scripts
 and shims source this file directly. The shims locate the repo at launch
 via `readlink -f "$0"`. Upgrade flow: bump the value in `versions`,
 re-run the matching `setup_<tool>.sh`.
+
+## Language toolchains
+
+conda, uv, rust and node each own a setup script. PATH for all of them is
+owned by `zsh/.zshrc` (`~/.local/bin`, `~/.cargo/bin`, the conda init
+block, the nvm source block), so every installer is told NOT to edit shell
+profiles — `.zshrc` is a managed symlink and must not be clobbered:
+- conda: setup skips `conda init`; the hook block lives in `zsh/.zshrc`.
+  Installs miniconda to `$HOME/miniconda3`.
+- uv: Astral installer with `INSTALLER_NO_MODIFY_PATH=1`, lands in
+  `~/.local/bin`. Not snap (fragile on WSL).
+- rust: rustup with `-y --no-modify-path`. Removes any apt rustc/cargo
+  first — they live in `/usr/bin` (earlier on PATH) and shadow the rustup
+  binaries with a stale version. Cargo CLIs (grip-grab → `gg`, needed by
+  lvim/pymple) go through a `cargo_install_if_wanted` helper that prompts
+  y/n per crate, mirroring the root dispatcher.
+- node: nvm (pinned via `NVM_VERSION`) with `PROFILE=/dev/null`; the source
+  block already lives in `zsh/.zshrc`. Installs the latest LTS as default,
+  which is what Copilot and other lvim plugins need.
