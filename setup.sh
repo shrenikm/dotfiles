@@ -65,6 +65,8 @@ configure_if_wanted "yazi"    "$SCRIPT_DIR/yazi/setup_yazi.sh"
 configure_if_wanted "lazygit" "$SCRIPT_DIR/lazygit/setup_lazygit.sh"
 configure_if_wanted "conda"   "$SCRIPT_DIR/conda/setup_conda.sh"
 configure_if_wanted "uv"      "$SCRIPT_DIR/uv/setup_uv.sh"
+configure_if_wanted "rust"    "$SCRIPT_DIR/rust/setup_rust.sh"
+configure_if_wanted "node"    "$SCRIPT_DIR/node/setup_node.sh"
 configure_if_wanted "direnv"  "$SCRIPT_DIR/direnv/setup_direnv.sh"
 configure_if_wanted "claude"  "$SCRIPT_DIR/claude/setup_claude.sh"
 
