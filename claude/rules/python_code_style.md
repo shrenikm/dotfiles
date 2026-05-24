@@ -65,7 +65,7 @@
 
 - It is preferable for each major project to have its own logger extended from the base python logger
 - The custom logger can be configured to things in specific formats, colors, etc.
-- Prefer to use loggers for major logging events instead of print statements. For functions that require logging, prefer to pass the logger in as an argument. The argument can be None if required. For classes, prefer to have an attrs field for the logger (attr.field(init=False)) that is initialized to the name of the class. If we need to use global loggers, make sure to use a succinct logger name instead of the filepath
+- Prefer to use loggers for major logging events instead of print statements. For functions that require logging, prefer to pass the logger in as an argument. The argument can be None if required. For classes, prefer to have an attrs field for the logger (attr.field(init=False)) that is initialized to the name of the class. If we need to use global loggers, make sure to use a class-like camel case logger name instead of the filepath
 
 ## Error Handling
 
