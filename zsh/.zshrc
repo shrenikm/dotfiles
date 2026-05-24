@@ -129,3 +129,11 @@ function y() {
 	rm -f -- "$tmp"
 }
 # -----------------------------------------------------------
+
+# Machine-local overrides
+# -----------------------------------------------------------
+# Untracked, per-host config that shouldn't live in the repo (ssh-agent /
+# keychain, secrets, box-specific tweaks). Sourced last so it can override
+# anything above. Create ~/.zshrc.local on the relevant machine.
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+# -----------------------------------------------------------
