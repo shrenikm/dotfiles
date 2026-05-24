@@ -1,0 +1,14 @@
+channels:
+  - defaults
+
+# Don't auto-activate base on shell startup. zsh/.zshrc explicitly activates
+# base only when no env was inherited from the parent shell, so subshells
+# (e.g. nvim :terminal launched inside a direnv-activated project) keep their
+# inherited env instead of getting clobbered by conda's unconditional hook.
+auto_activate_base: false
+
+# Don't let conda mutate PS1. Its PS1 changes don't survive direnv's subshell
+# activation, and zsh/.zshrc renders $CONDA_DEFAULT_ENV into RPROMPT itself —
+# leaving changeps1 on would double-render the env name on manual `conda
+# activate` inside a direnv shell.
+changeps1: false

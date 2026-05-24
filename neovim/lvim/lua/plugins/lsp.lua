@@ -24,6 +24,7 @@ return {
                   reportAny = "none",
                   reportExplicitAny = "none",
                   reportMissingTypeArgument = "none",
+                  reportPrivateImportUsage = "none",
                   reportPrivateLocalImportUsage = "none",
                   reportUnannotatedClassAttribute = "none",
                   reportUnusedCallResult = "none",
@@ -31,7 +32,7 @@ return {
                 -- Keep parameter-name hints (the "foo=" labels next to args
                 -- in function calls); kill every type-annotation ghost.
                 inlayHints = {
-                  callArgumentNames = true,
+                  callArgumentNames = false,
                   variableTypes = false,
                   functionReturnTypes = false,
                   genericTypes = false,

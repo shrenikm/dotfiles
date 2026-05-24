@@ -74,14 +74,6 @@ path+=$HOME/.cargo/bin
 
 # Conda
 # -----------------------------------------------------------
-# conda's shell hook ends with an unconditional `conda activate 'base'`
-# whenever `auto_activate: True` is set in condarc (the default). That stacks
-# base on top of whatever env was already active in the parent shell, so
-# subshells spawned from a non-base env (e.g. nvim's builtin terminal) end up
-# with the prompt and PATH reset to base. Snapshot the inherited env first,
-# then pop base back off after the hook runs.
-_inherited_conda_env="${CONDA_DEFAULT_ENV:-}"
-
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -95,34 +87,16 @@ else
 fi
 unset __conda_setup
 
-if [ -n "$_inherited_conda_env" ] && [ "$_inherited_conda_env" != "base" ]; then
-    conda deactivate
-fi
-unset _inherited_conda_env
-# -----------------------------------------------------------
+# Activate base only if no env was inherited from the parent shell. Keeps
+# new terminals landing in (base) without clobbering subshells launched from
+# inside an already-active env (e.g. nvim :terminal from a direnv project).
+[ -z "${CONDA_DEFAULT_ENV:-}" ] && conda activate base
 
-# Prompt: show active conda env
-# -----------------------------------------------------------
-# Conda's own PS1 mutation is disabled via `conda config --set changeps1 false`
-# because it doesn't survive direnv's subshell activation. We render
-# $CONDA_DEFAULT_ENV into PROMPT ourselves.
-#
-# The precmd hook + _ORIGINAL_PROMPT snapshot is specifically to appease
-# af-magic: its afmagic_dashes function greps $PS1 for the literal string
-# `(envname)` so it can subtract that width from the top dashes line. With
-# a PROMPT_SUBST one-liner, PS1 stores the unexpanded template, the grep
-# misses, dashes run full-width, and the `(envname)` prefix wraps to a new
-# line. Rebuilding PROMPT with the literal env name pre-substituted avoids
-# the wrap.
-#
-# If you switch themes: drop this entire block and use a plain one-liner
-#     PROMPT='%F{yellow}${CONDA_DEFAULT_ENV:+($CONDA_DEFAULT_ENV) }%f'$PROMPT
-# — or, if the new theme has a built-in conda segment, use that.
-_ORIGINAL_PROMPT=$PROMPT
-_conda_prompt_update() {
-    PROMPT="${CONDA_DEFAULT_ENV:+%F{yellow\}($CONDA_DEFAULT_ENV)%f }${_ORIGINAL_PROMPT}"
-}
-precmd_functions+=(_conda_prompt_update)
+# Render $CONDA_DEFAULT_ENV as a prompt prefix. Conda's own PS1 mutation is
+# disabled (changeps1: false) because it doesn't survive direnv's subshell
+# activation, so we inject the prefix here in a theme-agnostic way.
+setopt prompt_subst
+RPROMPT='%F{yellow}${CONDA_DEFAULT_ENV:+($CONDA_DEFAULT_ENV) }%f'$RPROMPT
 # -----------------------------------------------------------
 
 # Node config
