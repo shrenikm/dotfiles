@@ -53,13 +53,17 @@
       "Bash(cat **/.env.*)",
       "Bash(printenv)",
       "Bash(env)"
-    ]
+    ],
+    "defaultMode": "auto"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
   "theme": "dark-ansi",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true,
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true
-  }
+  "skipAutoPermissionPrompt": true
 }
