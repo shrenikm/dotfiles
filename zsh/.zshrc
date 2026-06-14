@@ -54,6 +54,11 @@ alias ga='git add -u'
 alias gaa='git add .'
 alias gcm='git commit -m'
 alias gpo='git push origin'
+
+# Claude Code. Shadows /usr/bin/cc (the C compiler) at the interactive
+# prompt only; build tooling invokes cc directly and is unaffected. Use
+# \cc or `command cc` to reach the compiler if ever needed.
+alias cc='claude'
 # -----------------------------------------------------------
 
 # Neovim config
@@ -120,8 +125,10 @@ fi
 
 # Yazi config
 # -----------------------------------------------------------
-# Resume from the last working directory when calling yazi through 'y'
-function y() {
+# 'y' opens yazi normally; 'yy' also resumes the shell in yazi's last
+# working directory on exit.
+alias y='yazi'
+function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
