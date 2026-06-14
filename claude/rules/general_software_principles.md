@@ -14,4 +14,4 @@
 ## Opening PRs
 
 - When asked to create PRs, please ensure that the PR title is clear and concise
-- PR descriptions must contain details of the PR but avoid extremely verbose descriptions. Explain things wherever necessary but follow the same principles as mentioned in the documentation section and don't be redundant
+- PR descriptions must contain details of the PR but avoid extremely verbose descriptions. Explain things wherever necessary but follow the same principles as mentioned in the documentation section and don't be redundant and overly descriptive. Assume that the reviewer can read between the lines
