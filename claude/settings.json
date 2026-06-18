@@ -63,12 +63,13 @@
     "claude-md-management@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "theme": "dark-ansi",
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "voice": {
-    "enabled": true,
-    "mode": "hold"
-  }
+  "awaySummaryEnabled": false
 }
