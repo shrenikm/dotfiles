@@ -15,15 +15,6 @@ Miscellaneous:
 Config files are symlinked into their canonical locations under `~` by
 per-tool setup scripts.
 
-## Machine-local config
-
-`zsh/.zshrc` sources `~/.zshrc.local` last (if it exists) for per-host
-config that must not live in the repo — ssh-agent/keychain, secrets,
-box-specific tweaks. `.zshrc.local` is untracked and created by hand on
-the machine that needs it; on machines without one the source line is a
-no-op. Sourced last so it can override anything above. Only `.zshrc` is
-symlinked, so `~/.zprofile` / `~/.zshenv` are also free for local use.
-
 ## Setup scripts
 
 Each tool owns an idempotent setup script: `<tool>/setup_<tool>.sh`
