@@ -3,7 +3,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="af-magic"
+# Per-machine theme override: set ZSH_THEME in ~/.zshrc.local.early (untracked,
+# optional) to differ from the default. Falls back to af-magic if absent.
+[ -f "$HOME/.zshrc.local.early" ] && source "$HOME/.zshrc.local.early"
+ZSH_THEME="${ZSH_THEME:-af-magic}"
 
 plugins=(
   zsh-autosuggestions
