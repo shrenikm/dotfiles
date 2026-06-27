@@ -62,8 +62,10 @@ if [ -d "$OH_MY_ZSH_DIR" ]; then
     echo 'oh-my-zsh is already installed.'
 else
     echo 'oh-my-zsh is not installed. Installing ...'
-    # Unattended: do not chsh or launch zsh at end of install.
-    RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # Unattended: do not chsh, launch zsh, or replace .zshrc (we symlink our own
+    # below; without --keep-zshrc the installer writes a default .zshrc that makes
+    # link_if_missing skip our symlink).
+    RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 fi
 
 # Install custom plugins
