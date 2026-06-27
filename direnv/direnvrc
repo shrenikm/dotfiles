@@ -20,19 +20,10 @@ layout_conda() {
         return 1
     fi
 
-    # Locate conda.sh. Checks common install prefixes; extend if your conda
-    # lives elsewhere.
-    local conda_sh=""
-    local candidate
-    for candidate in /opt/miniconda3 /opt/anaconda3 "$HOME/miniconda3" "$HOME/anaconda3"; do
-        if [ -f "$candidate/etc/profile.d/conda.sh" ]; then
-            conda_sh="$candidate/etc/profile.d/conda.sh"
-            break
-        fi
-    done
-
-    if [ -z "$conda_sh" ]; then
-        log_error "layout conda: could not find conda.sh in any known prefix"
+    # Conda lives at ~/miniforge3 (installed by conda/setup_conda.sh).
+    local conda_sh="$HOME/miniforge3/etc/profile.d/conda.sh"
+    if [ ! -f "$conda_sh" ]; then
+        log_error "layout conda: conda.sh not found at $conda_sh (is Miniforge installed?)"
         return 1
     fi
 

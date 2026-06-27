@@ -1,9 +1,12 @@
 # Oh my zsh config
 # -----------------------------------------------------------
 # Path to your oh-my-zsh installation.
-export ZSH="/home/shrenikm/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="af-magic"
+# Per-machine theme override: set ZSH_THEME in ~/.zshrc.local.early (untracked,
+# optional) to differ from the default. Falls back to af-magic if absent.
+[ -f "$HOME/.zshrc.local.early" ] && source "$HOME/.zshrc.local.early"
+ZSH_THEME="${ZSH_THEME:-af-magic}"
 
 plugins=(
   zsh-autosuggestions
@@ -79,15 +82,15 @@ path+=$HOME/.cargo/bin
 
 # Conda
 # -----------------------------------------------------------
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
+# Miniforge install at ~/miniforge3, sourced on shell startup.
+__conda_setup="$("$HOME/miniforge3/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
