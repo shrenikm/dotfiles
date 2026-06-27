@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Setup script for Miniconda.
-# Installs Miniconda to $HOME/miniconda3 (user-local, no sudo, works on WSL).
+# Setup script for Miniforge.
+# Installs Miniforge to $HOME/miniforge3 (user-local, no sudo, works on WSL).
+# Miniforge defaults to the conda-forge channel (no Anaconda defaults-channel ToS).
 # Does NOT run `conda init` — the zsh hook block lives in zsh/.zshrc.
 # Symlinks .condarc to ~/.condarc (auto_activate_base + changeps1 settings
 # that the zsh prompt logic depends on).
@@ -35,33 +36,33 @@ link_if_missing() {
     fi
 }
 
-MINICONDA_PREFIX="$HOME/miniconda3"
-MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+MINIFORGE_PREFIX="$HOME/miniforge3"
+MINIFORGE_URL="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh"
 
-# Install miniconda
+# Install Miniforge
 # ------------------------------------------------
-if [ -d "$MINICONDA_PREFIX" ]; then
-    echo "Miniconda is already installed at $MINICONDA_PREFIX."
+if [ -d "$MINIFORGE_PREFIX" ]; then
+    echo "Miniforge is already installed at $MINIFORGE_PREFIX."
 else
-    if [ -d "/opt/miniconda3" ]; then
-        echo -e "${YELLOW}A legacy Miniconda install exists at /opt/miniconda3.${NO_COLOR}"
-        echo -e "${YELLOW}Installing a fresh copy to $MINICONDA_PREFIX. See the README for migration steps.${NO_COLOR}"
+    if [ -d "$HOME/miniconda3" ]; then
+        echo -e "${YELLOW}A legacy Miniconda install exists at $HOME/miniconda3.${NO_COLOR}"
+        echo -e "${YELLOW}Installing Miniforge to $MINIFORGE_PREFIX. See the README for migration steps.${NO_COLOR}"
     fi
-    echo "Downloading Miniconda installer ..."
+    echo "Downloading Miniforge installer ..."
     TMP_INSTALLER=$(mktemp --suffix=.sh)
-    if ! curl -fL "$MINICONDA_URL" -o "$TMP_INSTALLER"; then
-        echo -e "${RED}Failed to download Miniconda installer from $MINICONDA_URL${NO_COLOR}"
+    if ! curl -fL "$MINIFORGE_URL" -o "$TMP_INSTALLER"; then
+        echo -e "${RED}Failed to download Miniforge installer from $MINIFORGE_URL${NO_COLOR}"
         rm -f "$TMP_INSTALLER"
         exit 1
     fi
     # -b: batch (no prompts, auto-accept license). -p: install prefix.
-    if ! bash "$TMP_INSTALLER" -b -p "$MINICONDA_PREFIX"; then
-        echo -e "${RED}Miniconda installer failed.${NO_COLOR}"
+    if ! bash "$TMP_INSTALLER" -b -p "$MINIFORGE_PREFIX"; then
+        echo -e "${RED}Miniforge installer failed.${NO_COLOR}"
         rm -f "$TMP_INSTALLER"
         exit 1
     fi
     rm -f "$TMP_INSTALLER"
-    echo -e "${CYAN}Miniconda installed at $MINICONDA_PREFIX.${NO_COLOR}"
+    echo -e "${CYAN}Miniforge installed at $MINIFORGE_PREFIX.${NO_COLOR}"
 fi
 
 # Symlink .condarc
@@ -69,4 +70,4 @@ fi
 link_if_missing "$SCRIPT_DIR/.condarc" "$HOME/.condarc" ".condarc"
 
 echo -e "\nConda dotfiles setup complete."
-echo -e "${CYAN}The zsh conda init block in zsh/.zshrc sources $MINICONDA_PREFIX on shell startup.${NO_COLOR}"
+echo -e "${CYAN}The zsh conda init block in zsh/.zshrc sources $MINIFORGE_PREFIX on shell startup.${NO_COLOR}"

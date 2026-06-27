@@ -1,5 +1,5 @@
 channels:
-  - defaults
+  - conda-forge
 
 # Don't auto-activate base on shell startup. zsh/.zshrc explicitly activates
 # base only when no env was inherited from the parent shell, so subshells
