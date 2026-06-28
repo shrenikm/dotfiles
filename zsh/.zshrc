@@ -140,6 +140,17 @@ function yy() {
 }
 # -----------------------------------------------------------
 
+# Lazygit config
+# -----------------------------------------------------------
+# Committed base (dotfiles/lazygit/config.yml) + an optional untracked per-machine
+# override (~/.config/lazygit/config.local.yml) layered on top via $LG_CONFIG_FILE.
+if [ -f "$HOME/Projects/dotfiles/lazygit/config.yml" ]; then
+    export LG_CONFIG_FILE="$HOME/Projects/dotfiles/lazygit/config.yml"
+    [ -f "$HOME/.config/lazygit/config.local.yml" ] && \
+        export LG_CONFIG_FILE="$LG_CONFIG_FILE,$HOME/.config/lazygit/config.local.yml"
+fi
+# -----------------------------------------------------------
+
 # Machine-local overrides
 # -----------------------------------------------------------
 # Untracked, per-host config that shouldn't live in the repo (ssh-agent /
