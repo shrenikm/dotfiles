@@ -1,8 +1,1 @@
-# Shared lazygit config (committed, the base layer).
-#
-# No settings here = lazygit's built-in defaults, which is the look on any
-# machine with no override. Add shared defaults below to change every machine.
-#
-# For a per-machine look (e.g. a different gui.theme.activeBorderColor to tell
-# boxes apart at a glance), drop an UNtracked ~/.config/lazygit/config.local.yml;
-# it's layered on top via $LG_CONFIG_FILE (set in zsh/.zshrc).
+# Shared lazygit base config (committed). Per-machine overrides: see README.md.
