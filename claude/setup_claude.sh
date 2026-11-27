@@ -33,6 +33,16 @@ link_if_missing() {
     fi
 }
 
+# Install jq (needed by statusline.sh)
+# ------------------------------------------------
+if command -v jq &> /dev/null; then
+    echo 'jq is already installed.'
+else
+    echo 'jq is not installed. Installing ...'
+    sudo apt update
+    sudo apt install -y jq
+fi
+
 # Symlink the claude config into ~/.claude
 # ------------------------------------------------
 echo 'Setting up claude config ...'
