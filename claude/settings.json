@@ -56,6 +56,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -63,6 +64,8 @@
     "claude-md-management@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -71,5 +74,14 @@
   "editorMode": "vim",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "awaySummaryEnabled": false
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh",
+    "refreshInterval": 60
+  }
 }
